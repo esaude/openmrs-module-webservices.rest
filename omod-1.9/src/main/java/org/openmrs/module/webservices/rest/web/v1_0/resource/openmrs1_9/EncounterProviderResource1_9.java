@@ -139,6 +139,16 @@ public class EncounterProviderResource1_9 extends DelegatingSubResource<Encounte
         return provider.getName() + ": " + rolePlayed.getName();
     }
 
+    @PropertyGetter("uuid")
+    public String getProviderUuid(EncounterProvider encounterProvider) {
+        if (encounterProvider == null){
+            return "";
+        }
+
+        Provider provider = encounterProvider.getProvider();
+        return provider.getUuid();
+    }
+
     @Override
     public String getResourceVersion() {
         return RestConstants1_9.RESOURCE_VERSION;
